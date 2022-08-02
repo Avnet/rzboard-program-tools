@@ -23,3 +23,6 @@ REM : get u-boot and fastboot version
 REM start flash RAW system image
 echo %FB% flash rawimg %IMG_NAME%
 %FB% flash rawimg %IMG_NAME%
+
+echo,
+pause

@@ -1,0 +1,85 @@
+; Copyright (C) 2022 Avnet
+; This TeraTerm macro programs the linux system image by fastboot in U-boot.
+
+; +----------------------------------+
+; |         Macro Parameters         |
+; +----------------------------------+
+
+; #### You probably need to modify the COM port here ####
+COM = 7
+
+; #### You probably need to modify the U-boot IP address here ####
+ipstr='192.168.2.56'
+
+; #### You probably need to modify the system image name here ####
+SYSIMG_FILE  = "images/linuxsys_rzboard_yocto.img"
+
+
+; #### Normally you do not need to modify anything below this line ####
+
+; get current base path
+getdir BASE_PATH
+strconcat BASE_PATH "\"
+
+; +----------------------------------+
+; |       Connect to comport         |
+; +----------------------------------+
+
+comstr='/C='
+int2str comport COM
+strconcat comstr comport
+
+connect comstr
+
+testlink
+if result=0 then
+   messagebox "No COM port found!" "Error!"
+   disconnect 0
+   closett
+   end
+   exit
+endif
+if result=1 then
+   messagebox "Connect to COM port failed, is the COM port already open?" "Error!"
+   disconnect 0
+   closett
+   end
+   exit
+endif
+
+; set baudrate to 115200 bps
+setbaud 115200
+
+setsync 1
+
+; +-------------------------------------+
+; |        Setting U-boot Env           |
+; +-------------------------------------+
+
+SCRIPT_CMD=BASE_PATH
+strconcat SCRIPT_CMD "tools\flashlinux.bat " 
+strconcat SCRIPT_CMD ipstr 
+strconcat SCRIPT_CMD " " 
+strconcat SCRIPT_CMD BASE_PATH 
+strconcat SCRIPT_CMD " " 
+strconcat SCRIPT_CMD SYSIMG_FILE 
+
+waitregex "Hit any key to stop autoboot:"
+sendln "y"
+
+flushrecv
+mpause 100
+
+sendln 'setenv ipaddr ' ipstr
+
+sendln "fastboot udp"
+waitregex "Listening for fastboot command on"
+
+exec SCRIPT_CMD 
+
+pause 30
+
+disconnect 0
+closett
+end
+exit

@@ -8,11 +8,11 @@ We can use the script **flash_bootloader.ttl** to program bootloader images to F
 
 1.Put all bootloader images to the folder /images
 
-![image-20220802104745119](pics/image-20220802104745119.png)
+![](pics/image-imagefolder.png)
 
 2.Connect debug serial (TXD,RXD,GND) to PC, Connect Boot2 (Pin1 of J19) to 5V, Set SW1 as shown below:
 
-![image-20220802102426178](pics/image-20220802102426178.png)
+![](pics/image-SCIFmode.png)
 
 3.Edit the TTL script **flash_bootloader.ttl** by any editor on windows(such as notepad) to configure the following two parameters according to your development environment.
 
@@ -47,7 +47,7 @@ We can use the script **flash_system_image.ttl** to program linux sysytem images
 
 1.Put the Linux system image to the folder /images, here take **core-image-rzboard.rootfs.wic** for an example,
 
-![image-20220802104745119](pics/image-20220802104745119.png)
+![](pics/image-imagefolder.png)
 
 2.Configure the hardware environment: 
 
@@ -59,7 +59,7 @@ We can use the script **flash_system_image.ttl** to program linux sysytem images
 |       SD card       |    Out (To programme to EMMC, SD card must be pulled out)    |
 |    Network Port     |           Connect to the network by network cable            |
 
-![image-20220802112506458](pics/image-20220802112506458.png)
+![](pics/image-bootfromeMMC.png)
 
 3.Edit the TTL script **flash_system_image.ttl**  by any editor on windows(such as notepad) to configure the following parameters according to your development environment.
 
@@ -90,7 +90,7 @@ SYSIMG_FILE  = "images/core-image-rzboard.rootfs.wic"
 
 6.The TTL script will automatically start **Tera Term** program, and flash the Linux system image into eMMC.
 
-![image-20220802114902566](pics/image-20220802114902566.png)
+![](pics/image-finished.png)
 
 Wait for the script to be automatically programmed, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
 

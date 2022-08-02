@@ -27,7 +27,7 @@ QSPI_NOT_eMMC = 1
 
 4.To run the TTL script, you can **right-click it** and choose **"Open with" -> "Choose another app" -> "More apps" -> "Look for another app on this PC"**, then **choose program "ttpmacro.exe"** in the Tera Term installation location, such as **"C:\Program Files (x86)\teraterm"** here.
 
-![image-20220802143328541](pics/image-20220802143328541.png)
+![](pics/image-openteraterm.png)
 
 5.Power on the board with a 5V, Type-C interface power (to J10).
 
@@ -37,7 +37,7 @@ QSPI_NOT_eMMC = 1
 
 ![](pics/ttl_lauch.png)
 
-Wait for the script running automatically, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit. ** Then you can set RzBoard to boot from QSPI or eMMC as your needs.
+Wait for the script running automatically, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
 
 
 
@@ -82,7 +82,7 @@ SYSIMG_FILE  = "images/core-image-rzboard.rootfs.wic"
 
 4.To run the TTL script, you can **right-click it** and choose **"Open with" -> "Choose another app" -> "More apps" -> "Look for another app on this PC"**, then **choose program "ttpmacro.exe"** in the Tera Term installation location, such as **"C:\Program Files (x86)\teraterm"** here.
 
-![image-20220802143305518](pics/image-20220802143305518.png)
+![](pics/image-openteraterm.png)
 
 5.Power on the board with a 5V, Type-C interface power (to J10).
 
@@ -92,7 +92,7 @@ SYSIMG_FILE  = "images/core-image-rzboard.rootfs.wic"
 
 ![image-20220802114902566](pics/image-20220802114902566.png)
 
-Wait for the script to be automatically programmed, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit. ** Then you can set RzBoard to boot from QSPI or eMMC as your needs.
+Wait for the script to be automatically programmed, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
 
 
 

@@ -8,7 +8,7 @@ We can use the script **flash_bootloader.ttl** to program bootloader images to F
 
 1.Put all bootloader images to the folder /images
 
-![](pics/image-imagefolder.png)
+![](pics/image-imagefolder0.png)
 
 2.Connect debug serial (TXD,RXD,GND) to PC, Connect Boot2 (Pin1 of J19) to 5V, Set SW1 as shown below:
 
@@ -37,7 +37,7 @@ QSPI_NOT_eMMC = 1
 
 ![](pics/ttl_lauch.png)
 
-Wait for the script running automatically, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
+Wait for the script running automatically, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will automatically exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
 
 
 
@@ -92,7 +92,7 @@ SYSIMG_FILE  = "images/core-image-rzboard.rootfs.wic"
 
 ![](pics/image-finished.png)
 
-Wait for the script to be automatically programmed, and no input or operation is required during this period. After finishing, the **TTL script and Tera Term will exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
+Wait for the script to be automatically programmed, and no input or operation is required during this period. After a while, the **TTL script and Tera Term  will automatically exit**. After finishing, you can **press any key to exit**. Then you can set RzBoard to boot from QSPI or eMMC as your needs.
 
 
 

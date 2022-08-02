@@ -27,13 +27,13 @@ QSPI_NOT_eMMC = 1
 
 4.To run the TTL script, you can **right-click it** and choose **"Open with" -> "Choose another app" -> "More apps" -> "Look for another app on this PC"**, then **choose program "ttpmacro.exe"** in the Tera Term installation location, such as **"C:\Program Files (x86)\teraterm"** here.
 
-<img src="pics/image-20220802102934679.png" alt="image-20220802102934679" style="zoom:33%;" />
+![image-20220802143328541](pics/image-20220802143328541.png)
 
 5.Power on the board with a 5V, Type-C interface power (to J10).
 
 **Note: Must run the TTL script before powering on the board.**
 
-6.The shell script will auto launch **Tera Term** program, and start flash bootloader images into QSPI flash or eMMC, which is configured in the TTL script.
+6.The TTL script will automatically start **Tera Term** program, and flash bootloader images into QSPI flash or eMMC, which is configured in the TTL script.
 
 ![](pics/ttl_lauch.png)
 
@@ -49,7 +49,15 @@ We can use the script **flash_system_image.ttl** to program linux sysytem images
 
 ![image-20220802104745119](pics/image-20220802104745119.png)
 
-2.Configure the hardware environment: Set RzBoard to eMMC Boot mode; Connect the USB Type-c 5V Input to 5V DC power supply; Connect Debug Serial to PC; Dial out SD card; Connect the Network cable.
+2.Configure the hardware environment: 
+
+|      Elements       |                            Action                            |
+| :-----------------: | :----------------------------------------------------------: |
+|      Boot Mode      | eMMC boot mode (Set Sw1 as shown below, Boot2 connect to GND or floating) |
+| USB Type-c 5V Input |                Connect to 5V DC power supply                 |
+|    Debug Serial     |        Connect to PC (Recommended USB to serial port)        |
+|       SD card       |    Out (To programme to EMMC, SD card must be pulled out)    |
+|    Network Port     |           Connect to the network by network cable            |
 
 ![image-20220802112506458](pics/image-20220802112506458.png)
 
@@ -74,13 +82,13 @@ SYSIMG_FILE  = "images/core-image-rzboard.rootfs.wic"
 
 4.To run the TTL script, you can **right-click it** and choose **"Open with" -> "Choose another app" -> "More apps" -> "Look for another app on this PC"**, then **choose program "ttpmacro.exe"** in the Tera Term installation location, such as **"C:\Program Files (x86)\teraterm"** here.
 
-![](pics/image-20220802102934679.png)
+![image-20220802143305518](pics/image-20220802143305518.png)
 
 5.Power on the board with a 5V, Type-C interface power (to J10).
 
 **Note: Must run the TTL script before powering on the board.**
 
-6.The shell script will auto launch **Tera Term** program, and start flash the Linux system image into eMMC.
+6.The TTL script will automatically start **Tera Term** program, and flash the Linux system image into eMMC.
 
 ![image-20220802114902566](pics/image-20220802114902566.png)
 

@@ -4,7 +4,7 @@ In order to make development more convenient, we have designed some small script
 
 ## Use flash_bootloader.ttl to program Bootloader Images to Flash or eMMC
 
-We can use the script **flash_bootloader.ttl** to program bootloader images to Flash or eMMC  through the following steps:
+RZBoard has two startup modes: **start from QSPI or start from eMMC**. If you plan to start from QSPI, you need to program the bootloader images to QSPI, or program the bootloader images to EMMC and start from EMMC. **The bootloader images written to QSPI are the same as the bootloader images written to EMMC,** as shown following: ***flashwriter_rzboard.mot, bl2_bp-rzboard.srec, fip-rzboard.srec***. We can use the script **flash_bootloader.ttl** to program bootloader images to Flash or eMMC  through the following steps:
 
 1.Put all bootloader images to the folder /images
 

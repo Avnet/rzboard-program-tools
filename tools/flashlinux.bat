@@ -14,7 +14,7 @@ set PATH=%PATH%;%WORK_DIR%\tools
 REM : Fastboot command prefix, add -v to enable verbose mode
 set FB=fastboot -s udp:%BOARD_IP% -v
 
-cd %WORK_DIR%
+pushd %WORK_DIR%
 
 REM : get u-boot and fastboot version
 %FB% getvar version-bootloader

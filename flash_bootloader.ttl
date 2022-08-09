@@ -10,7 +10,7 @@ COM = 7
 
 ; #### You probably need to modify the target here ####
 ; Program QSPI or eMMC: 1->QSPI  0->eMMC
-QSPI_NOT_eMMC = 1
+QSPI_NOT_eMMC = 0
 
 ; #### Normally you do not need to modify anything below this line ####
 

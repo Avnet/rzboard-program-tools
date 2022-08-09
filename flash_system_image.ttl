@@ -77,9 +77,8 @@ waitregex "Listening for fastboot command on"
 
 exec SCRIPT_CMD 
 
-pause 30
-
-disconnect 0
-closett
-end
-exit
+;pause 30
+;disconnect 0
+;closett
+;end
+;exit

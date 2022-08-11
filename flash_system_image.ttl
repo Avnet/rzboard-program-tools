@@ -12,7 +12,7 @@ COM = 7
 ipstr='192.168.2.56'
 
 ; #### You probably need to modify the system image name here ####
-SYSIMG_FILE  = "images/linuxsys_rzboard_yocto.img"
+SYSIMG_FILE  = "images\linuxsys_rzboard_yocto.img"
 
 
 ; #### Normally you do not need to modify anything below this line ####

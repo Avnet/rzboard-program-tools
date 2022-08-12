@@ -2,6 +2,9 @@
 REM : Copyright (C) 2022 Avnet
 REM : This BAT script should be called by TTL macro, but not run it directly.
 
+REM : Set windows color = light blue, text = bright white
+color 9F
+
 REM : Parser command arugments
 set BOARD_IP=%1
 set WORK_DIR=%2

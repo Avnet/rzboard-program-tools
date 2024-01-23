@@ -9,12 +9,17 @@ REM : Parser command arugments
 set BOARD_IP=%1
 set WORK_DIR=%2
 set IMG_NAME=%3
+set MODE=%4
 
 REM : Image file full path
 set IMG_PATH=%WORK_DIR%images\%IMG_NAME%
 
 REM : Fastboot command prefix, add -v to enable verbose mode
-set FB=fastboot -s udp:%BOARD_IP% -v
+if %MODE% equ 1 (
+   set FB=fastboot -v
+) else (
+   set FB=fastboot -s udp:%BOARD_IP% -v
+)
 
 REM : Change working directory to tools
 pushd %WORK_DIR%\tools
@@ -30,4 +35,6 @@ echo %FB% flash rawimg %IMG_PATH%
 %FB% flash rawimg %IMG_PATH%
 echo,
 
-pause
+REM : operation completed, feedback a completion signal
+echo "Programming completed successfully"
+%FB% oem flashdone

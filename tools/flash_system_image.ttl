@@ -10,6 +10,9 @@ IPADDR = params[3]
 WORK_DIR = params[4]
 SYSIMG_FILE  = params[5]
 
+; connection method: 0->Ethernet  1->USB
+CONN_MODE = params[6]
+
 ; get current base path
 getdir BASE_PATH
 strconcat BASE_PATH "\"
@@ -55,6 +58,8 @@ strconcat SCRIPT_CMD " "
 strconcat SCRIPT_CMD WORK_DIR 
 strconcat SCRIPT_CMD " " 
 strconcat SCRIPT_CMD SYSIMG_FILE 
+strconcat SCRIPT_CMD " " 
+strconcat SCRIPT_CMD CONN_MODE 
 
 waitregex "Hit any key to stop autoboot:"
 sendln "y"
@@ -62,9 +67,25 @@ sendln "y"
 flushrecv
 mpause 100
 
-sendln 'setenv ipaddr ' IPADDR
-
-sendln "fastboot udp"
-waitregex "Listening for fastboot command on"
+strcompare CONN_MODE '1'
+if result=0 then
+   sendln 'setenv serial# ' 'Renesas-rzv'
+   sendln "fastboot usb 0"
+   mpause 100
+else
+   sendln 'setenv ipaddr ' IPADDR
+   sendln "fastboot udp"
+   waitregex "Listening for fastboot command on"
+endif
 
 exec SCRIPT_CMD
+
+waitregex "command oem flashdone"
+; +--------------------------+
+; |    Disconnect And Exit   |
+; +--------------------------+
+
+disconnect 0
+closett
+end
+exit

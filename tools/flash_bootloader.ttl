@@ -58,13 +58,14 @@ strconcat IMG_PATH FLASH_WRITER
 waitregex "please send !"
 sendfile IMG_PATH 0
 waitregex ">"  
- 
 
 ; +--------------------------+
 ; |      Do Flash Erase      |
 ; +--------------------------+
  
 if QSPI_NOT_eMMC then
+   dispstr " "#$0A
+   dispstr " Start the erase operation, wait for about 5 minutes...   "
    sendln "xcs"   
    waitregex "Clear OK?"
    sendln "y"   
